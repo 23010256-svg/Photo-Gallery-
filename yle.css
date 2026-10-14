@@ -1,0 +1,105 @@
+/* Base / Mobile-First Styles (No media query for mobile) */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+header, footer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+figure {
+  margin: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+figcaption {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+/* Tablet View (triggers at 772px) */
+@media screen and (min-width: 772px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  figure {
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 20px;
+  }
+
+  figure img {
+    border-radius: 50%;
+  }
+
+  figure:last-child {
+    grid-column: span 2;
+  }
+}
+
+/* Large Screen View (triggers at 992px, NO max-width) */
+@media screen and (min-width: 992px) {
+  figure {
+    border-radius: 0;
+    padding: 10px;
+  }
+
+  figure img {
+    border-radius: 0;
+  }
+
+  figure:last-child {
+    grid-column: auto;
+  }
+
+  figure:nth-child(3n) {
+    grid-column: span 2;
+  }
+}
+
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Prefers Color Scheme: Dark */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  figure {
+    background-color: #222222;
+    color: #ffeb3b; /* Lighter / yellowish font color */
+    border: 1px solid #000000;
+  }
+}
